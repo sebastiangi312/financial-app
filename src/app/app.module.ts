@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { CreateTransactionComponent } from './pages/create-transaction/create-transaction.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { LayoutModule } from '@angular/cdk/layout';
@@ -19,7 +21,8 @@ import { MatListModule } from '@angular/material/list';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    CreateTransactionComponent
   ],
     imports: [
         BrowserModule,
@@ -30,7 +33,9 @@ import { MatListModule } from '@angular/material/list';
         MatButtonModule,
         MatSidenavModule,
         MatIconModule,
-        MatListModule
+        MatListModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
