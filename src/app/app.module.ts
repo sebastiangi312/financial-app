@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { CreateTransactionComponent } from './pages/create-transaction/create-transaction.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    CreateTransactionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
