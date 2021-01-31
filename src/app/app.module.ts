@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { CreateTransactionComponent } from './pages/create-transaction/create-transaction.component';
+import { CurrencyPipe } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './auth/register/register.component';
-import { ReactiveFormsModule} from '@angular/forms'
 import { AngularFireAuthModule} from '@angular/fire/auth';
 import { AngularFireModule} from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -20,17 +22,21 @@ import { environment } from 'src/environments/environment';
     LoginComponent,
     DashboardComponent,
     HeaderComponent,
+    CreateTransactionComponent,
     RegisterComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
-    AngularFirestoreModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAuthModule,
+        AngularFirestoreModule,
+    ],
+  providers: [
+    CurrencyPipe
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
