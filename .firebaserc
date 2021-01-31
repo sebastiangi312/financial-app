@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "finanzas-app-62e89": {
+      "hosting": {
+        "my-app": [
+          "finanzas-app-62e89"
+        ]
+      }
+    }
+  }
+}

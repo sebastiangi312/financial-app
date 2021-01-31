@@ -9,6 +9,12 @@ import { HeaderComponent } from './shared/header/header.component';
 import { CreateTransactionComponent } from './pages/create-transaction/create-transaction.component';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './auth/register/register.component';
+import { AngularFireAuthModule} from '@angular/fire/auth';
+import { AngularFireModule} from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -16,13 +22,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     DashboardComponent,
     HeaderComponent,
-    CreateTransactionComponent
+    CreateTransactionComponent,
+    RegisterComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAuthModule,
+        AngularFirestoreModule,
     ],
   providers: [
     CurrencyPipe
