@@ -24,7 +24,6 @@ export class RegisterComponent implements OnInit {
   register() {
     const {name, email, password} = this.registerForm.value
     this.authSvc.register(email, password)
-    
   }
 
 }
