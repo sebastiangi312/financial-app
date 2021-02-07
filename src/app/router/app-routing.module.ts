@@ -3,13 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import {CreateTransactionComponent} from '../pages/create-transaction/create-transaction.component';
 import { LoginComponent } from '../auth/login/login.component';
 import { RegisterComponent } from '../auth/register/register.component';
+import { LoginGuardian } from '../auth/login/login-guardian.service';
 
 const routes: Routes = [
   
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   
-  {path: 'Transaccion', component: CreateTransactionComponent}
+  {path: 'Transaccion', component: CreateTransactionComponent, canActivate: [LoginGuardian]}
   
 ];
 
