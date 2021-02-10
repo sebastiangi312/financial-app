@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { CreateTransactionComponent } from './create-transaction/create-transaction.component';
+
 import { AppRoutingModule } from '../router/app-routing.module';
 import { SharedModule } from '../shared/shared.module';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfitComponent } from './transactions/profit/profit.component';
+import { SpendComponent } from './transactions/spend/spend.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    CreateTransactionComponent
+    ProfitComponent,
+    SpendComponent
   ],
   imports: [
     CommonModule,
@@ -22,8 +24,7 @@ import { SharedModule } from '../shared/shared.module';
     AppRoutingModule
   ],
   exports: [
-    DashboardComponent,
-    CreateTransactionComponent
+    DashboardComponent
   ],
   providers: [
     CurrencyPipe 
