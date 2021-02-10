@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -15,15 +16,18 @@ export class LoginComponent implements OnInit {
     password: new FormControl(''),
   })
 
-  constructor(private authSvc:AuthService) { }
+  constructor(private authSvc:AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   login(){
     const {email, password} = this.loginForm.value
-    this.authSvc.login(email, password);
-    console.log("Te has logeado")
+    this.authSvc.login(email, password);   
   }
+
+  
+  
+
 
 }
