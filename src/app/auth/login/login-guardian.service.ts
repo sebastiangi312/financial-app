@@ -12,7 +12,7 @@ export class LoginGuardian implements CanActivate{
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
         const user = await this.authSvc.isAutentication();
         if(user){
-            console.log(user)
+            
             return true;
         }
         else{

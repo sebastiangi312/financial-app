@@ -10,11 +10,13 @@ import { ProfitComponent } from './transactions/profit/profit.component';
 import { SpendComponent } from './transactions/spend/spend.component';
 
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
     ProfitComponent,
-    SpendComponent
+    SpendComponent,
+    
   ],
   imports: [
     CommonModule,

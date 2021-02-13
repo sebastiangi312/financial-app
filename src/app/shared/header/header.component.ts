@@ -15,9 +15,9 @@ export class HeaderComponent implements OnInit {
   
   public user$: Observable<any> = this.authSvc.auth.user;
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     const user =  this.authSvc
-
+    
   }
 
   logOut(){
