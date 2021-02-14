@@ -6,19 +6,20 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   
-  
 
-  constructor(public auth: AngularFireAuth, private router: Router) { 
+  constructor(public auth: AngularFireAuth, private router: Router, public Firebase: AngularFirestore) { 
     
   }
   
-  
+ 
+
   login(email: string, password: string){
     // try {
     //   const result = this.auth.signInWithEmailAndPassword(email, password);
@@ -30,6 +31,7 @@ export class AuthService {
      this.auth.signInWithEmailAndPassword(email, password).then(
       ()=> this.router.navigate(['/'])
     )
+   
     
 
   }
@@ -42,7 +44,7 @@ export class AuthService {
     // catch(error){
     //   console.log(error)
     // }
-    this.auth.createUserWithEmailAndPassword(email, password).then(
+    return this.auth.createUserWithEmailAndPassword(email, password).then(
       ()=> this.router.navigate(['/'])
     )
     
@@ -54,9 +56,28 @@ export class AuthService {
   }
   
   isAutentication(){
+    
     const user = this.auth.authState.pipe(first()).toPromise();
     return user
   }
+  
+  async getUid(){
+    const user = await this.auth.currentUser;
+    if (user === null){
+      return null
+    }
+    else{
+      return user.uid;
+    }
+  }
+ 
+  createDoc(data: any, path: string, id: string){
+    const collection = this.Firebase.collection(path);
+    return collection.doc(id).set(data);
+  }
+
+  
+
 
 
 
