@@ -1,7 +1,7 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit, } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/auth/services/auth.service';
+import { TransactionService } from '../services/transaction.service';
 
 @Component({
   selector: 'app-profit',
@@ -16,7 +16,7 @@ export class ProfitComponent implements OnInit {
     value: new FormControl(null, Validators.required)
   })
 
-  constructor(private currencyPipe: CurrencyPipe, public Auth: AuthService) {}
+  constructor(private currencyPipe: CurrencyPipe, public transactionService : TransactionService) {}
 
   ngOnInit(): void {
     this.profitForm.valueChanges.subscribe(form => {
@@ -31,9 +31,9 @@ export class ProfitComponent implements OnInit {
 
   save(): void {
     if(this.profitForm.valid){
-      const {name, value} = this.profitForm.value;
-      console.log(name, value)
-      
+      this.transactionService.createTransanction(this.profitForm.value, "profits")
+    }else{
+      console.log("El formato es invalido")
     }
   }
 

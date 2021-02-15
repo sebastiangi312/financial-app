@@ -75,14 +75,5 @@ export class AuthService {
     const collection = this.Firebase.collection(path);
     return collection.doc(id).set(data);
   }
-
-  
-
-
-
-
-  
-    
-  
   
 }

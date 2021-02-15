@@ -1,6 +1,7 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit, } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TransactionService } from '../services/transaction.service';
 
 @Component({
   selector: 'app-profit',
@@ -14,7 +15,7 @@ export class SpendComponent implements OnInit {
     value: new FormControl('', Validators.required)
   })
 
-  constructor(private currencyPipe: CurrencyPipe) {}
+  constructor(private currencyPipe: CurrencyPipe, private transactionService : TransactionService) {}
 
   ngOnInit(): void {
     this.spendForm.valueChanges.subscribe(form => {
@@ -29,8 +30,9 @@ export class SpendComponent implements OnInit {
 
   save(): void {
     if(this.spendForm.valid){
-      const {name, value} = this.spendForm.value;
-      console.log(name, value)
+      this.transactionService.createTransanction(this.spendForm.value, "spends")
+    }else{
+      console.log("El formato es invalido")
     }
   }
 
