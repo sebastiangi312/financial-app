@@ -30,10 +30,19 @@ export class SpendComponent implements OnInit {
 
   save(): void {
     if(this.spendForm.valid){
-      this.transactionService.createTransanction(this.spendForm.value, "spends")
+      const newTransaction = {
+        name : this.spendForm.get("name")?.value,
+        value : this.currencyInputChanged(this.spendForm.get("value")?.value)
+      }
+      this.transactionService.createTransanction(newTransaction, "spends")
     }else{
       console.log("El formato es invalido")
     }
+  }
+
+  currencyInputChanged(value : string) {
+    var num = value.replace(/[$,]/g, "");
+    return Number(num);
   }
 
 }

@@ -35,7 +35,6 @@ export class ProfitComponent implements OnInit {
         name : this.profitForm.get("name")?.value,
         value : this.currencyInputChanged(this.profitForm.get("value")?.value)
       }
-      console.log(newTransaction)
       this.transactionService.createTransanction(newTransaction, "profits")
     }else{
       console.log("El formato es invalido")
