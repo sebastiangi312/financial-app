@@ -31,11 +31,19 @@ export class ProfitComponent implements OnInit {
 
   save(): void {
     if(this.profitForm.valid){
-      this.transactionService.createTransanction(this.profitForm.value, "profits")
+      const newTransaction = {
+        name : this.profitForm.get("name")?.value,
+        value : this.currencyInputChanged(this.profitForm.get("value")?.value)
+      }
+      console.log(newTransaction)
+      this.transactionService.createTransanction(newTransaction, "profits")
     }else{
       console.log("El formato es invalido")
     }
   }
 
-
+  currencyInputChanged(value : string) {
+    var num = value.replace(/[$,]/g, "");
+    return Number(num);
+  }
 }

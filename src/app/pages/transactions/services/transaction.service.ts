@@ -10,7 +10,7 @@ export class TransactionService {
 
   constructor(public Firebase: AngularFirestore, private authSvc:AuthService) { }
 
-  createTransanction(transaction: any, type : string){
+  createTransanction(transaction : any, type : string){
     this.authSvc.getUid().then((userId) => {
       if(userId != null){
         const clientsCollection = this.Firebase.collection("clients")
