@@ -6,6 +6,7 @@ import { RegisterComponent } from '../auth/register/register.component';
 import { ProfitComponent } from '../pages/transactions/profit/profit.component';
 import { SpendComponent } from '../pages/transactions/spend/spend.component';
 import { LoginGuardian } from '../auth/login/login-guardian.service';
+import { ProfileComponent } from '../pages/profile/profile.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   
 
   {path: 'profit', component: ProfitComponent, canActivate:[LoginGuardian]},
-  {path: 'spend', component: SpendComponent,  canActivate:[LoginGuardian]}
+  {path: 'spend', component: SpendComponent,  canActivate:[LoginGuardian]},
+  {path: 'profile', component: ProfileComponent,  canActivate:[LoginGuardian]}
 
   
 ];

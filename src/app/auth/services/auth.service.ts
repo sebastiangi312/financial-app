@@ -1,23 +1,29 @@
 
 
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from 'src/app/models/user';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  
+ 
   
 
   constructor(public auth: AngularFireAuth, private router: Router, public Firebase: AngularFirestore) { 
     
   }
-  
+
  
 
   login(email: string, password: string){
@@ -75,5 +81,12 @@ export class AuthService {
     const collection = this.Firebase.collection(path);
     return collection.doc(id).set(data);
   }
+
+  getDoc(path: string, id: any){
+    const collection = this.Firebase.collection(path);
+    return collection.doc(id).valueChanges();
+  }
+
+  
   
 }

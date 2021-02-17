@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     
+    
   }
 
   async register() {
@@ -44,6 +45,10 @@ export class RegisterComponent implements OnInit {
     const uid = await this.authSvc.getUid();
     this.user.uid = uid;
     this.saveUser()
+   
+    
+    
+
     
     
 
