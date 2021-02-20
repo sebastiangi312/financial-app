@@ -1,0 +1,19 @@
+.perfil {
+    background-color: #fafafa;
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    text-align: center;
+    
+    width: 500px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.centro {
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    
+}

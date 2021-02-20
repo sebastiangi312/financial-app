@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfitComponent } from './transactions/profit/profit.component';
 import { SpendComponent } from './transactions/spend/spend.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -16,6 +17,7 @@ import { SpendComponent } from './transactions/spend/spend.component';
     DashboardComponent,
     ProfitComponent,
     SpendComponent,
+    ProfileComponent,
     
   ],
   imports: [
